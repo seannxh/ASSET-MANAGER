@@ -2,16 +2,6 @@
 
 This project is a web-based asset management system built using Node.js, Express.js, MongoDB, and other modern web technologies. It allows users to manage different asset categories like stocks, houses, cars, and savings with full CRUD functionality.
 
-## Table of Contents
-
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Technologies Used
 
 - **Node.js**: A JavaScript runtime for building server-side applications.
