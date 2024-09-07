@@ -1,0 +1,93 @@
+.titlehome{
+    color: white;
+}
+.nav {
+    margin-top: 10px;
+    color: #000000; 
+    padding: 8px 0; 
+    text-align: center; 
+    width: 100%;
+}
+.title{
+    color: rgb(255, 255, 255);
+}
+.nav a {
+    color: #ffffff; 
+    text-decoration: none; 
+    margin: 0 15px; 
+    font-size: 15px; 
+    border-radius: 5px;
+    font-weight: bold;
+}
+.van a{
+    color: rgb(0, 0, 0); 
+    text-decoration: none; 
+    margin: 0 15px; 
+    font-size: 15px; 
+    border-radius: 5px;
+    font-weight: bold;
+}
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    text-align: center; 
+    padding: 20px;
+}
+button {
+    background-color: #ffffff; 
+    color: #000000; 
+    border: 2px solid #000000; 
+    padding: 10px ; 
+    font-size: 15px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+button:hover {
+    background-color: rgb(229, 229, 229);
+    color: #000000; 
+}
+
+.button {
+    background-color: transparent; 
+    color: #ffffff;
+    border: 2px solid rgb(255, 255, 255); 
+    padding: 10px 20px;
+    margin-top: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.info-section {
+    background-color: #e0e0e0;
+    padding: 20px;
+    margin-top: 20px; 
+}
+
+h1, h2 {
+    color: #000000;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.info-section {
+    border: 5px solid gainsboro; 
+    padding: 20px; 
+    margin: 20px; 
+    background-color: rgba(255, 255, 255, 0.089); /
+}
+
+

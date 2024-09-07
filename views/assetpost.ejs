@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE ASSET</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="van"><%- include('./partials/nav') %></div>
+
+    <br>
+    <a href="/asset"><button class="but">Go Back</button></a>
+
+    <form method="POST" action="/asset">
+        <br>
+        <fieldset>
+            <legend>Create New Asset</legend>
+
+            <label for="asset-type">Choose Asset Type:</label>
+            <select id="asset-type" name="type" onchange="showForm()" required>
+                <option value="">Select an option</option>
+                <option value="stock">Stock</option>
+                <option value="house">House</option>
+                <option value="car">Car</option>
+                <option value="savings">Savings</option>
+            </select>
+            <br><br>
+
+            <div id="stock-form" class="form-section" style="display: none;">               
+                <h2>Stock Form</h2>
+                <label>Stock Symbol: <input type="text" name="stockSymbol" placeholder="Enter the Stock Symbol" /></label>
+                <br>
+                <br>
+                <label>Shares Owned: <input type="number" name="sharesOwned" placeholder="Enter Shares Owned" /></label>
+                <br>
+                <br>
+                <label>Value: <input type="number" name="value" placeholder="Enter the value" /></label>
+                <br>
+                <br>
+                <label>Image URL: <input type="text" name="imageURL" placeholder="Enter the Image URL" /></label>
+                <br>
+                <br>
+            </div>
+
+            <div id="house-form" class="form-section" style="display: none;">
+                <h2>House Form</h2>
+                <label>Address: <input type="text" name="address" placeholder="Enter the Address"/></label>
+                <br>
+                <br>
+                <label>Bedrooms: <input type="number" name="bedrooms" placeholder="Enter Number of Bedrooms"/></label>
+                <br>
+                <br>
+                <label>Bathrooms: <input type="number" name="Bathrooms" placeholder="Enter Number of Bathrooms"/></label>
+                <br>
+                <br>
+                <label>Square Feet: <input type="number" name="squareFeet" placeholder="Enter Square Feet"/></label>
+                <br>
+                <br>
+                <label>For Sale: <input type="checkbox" name="forSale" /></label>
+                <br>
+                <br>
+                <label>Estimated Value: <input type="number" name="value" placeholder="Enter the value"/></label>
+                <br>
+                <br>
+                <label>Image URL: <input type="text" name="imageURL" placeholder="Enter the Image URL"/></label>
+                <br>
+                <br>
+            </div>
+
+            <div id="car-form" class="form-section" style="display: none;">
+                <h2>Car Form</h2>
+                <label>Car Name: <input type="text" name="carName" placeholder="Enter the Car Name" /></label>
+                <br>
+                <br>
+                <label>Car Brand: <input type="text" name="carBrand" placeholder="Enter the Car Brand"/></label>
+                <br>
+                <br>
+                <label>Car Year: <input type="number" name="carYear" placeholder="Enter the Year"/></label>
+                <br>
+                <br>
+                <label>Car Trim: <input type="text" name="carTrim" placeholder="Enter the Car Trim"/></label>
+                <br>
+                <br>
+                <label>Car Mileage: <input type="number" name="carMileage" placeholder="Enter the Mileage"/></label>
+                <br>
+                <br>
+                <label>Estimated Value: <input type="number" name="value" placeholder="Enter the value"/></label>
+                <br>
+                <br>
+                <label>Image URL: <input type="text" name="imageURL" placeholder="Enter the Image URL"/></label>
+                <br>
+                <br>
+            </div>
+
+            <div id="savings-form" class="form-section" style="display: none;">
+                <h2>Savings Form</h2>
+                <label>Account Number: <input type="text" name="accountNumber" placeholder="Enter the Account Number"/></label>
+                <br>
+                <br>
+                <label>Interest Rate: <input type="text" name="interestRate" placeholder="Enter the Interest Rate"/></label>
+                <br>
+                <br>
+                <label>Value: <input type="number" name="value" placeholder="Enter the value" /></label>
+                <br>
+                <br>
+                <label>Image URL: <input type="text" name="imageURL" placeholder="Enter the Image URL"/></label>
+                <br>
+                <br>
+            </div>
+
+                <input class="but"type="submit" value="Create Asset" />
+        </fieldset>
+    </form>
+
+    <script>
+        function showForm() {
+            const selectedAsset = document.getElementById("asset-type").value;
+
+            document.querySelectorAll('.form-section').forEach(form => {
+            form.style.display = 'none';
+            form.querySelectorAll('input').forEach(input => {
+            input.disabled = true;
+        });
+        });
+
+
+        if (selectedAsset) {
+            const selectedForm = document.getElementById(`${selectedAsset}-form`);
+            selectedForm.style.display = 'block';
+
+            selectedForm.querySelectorAll('input').forEach(input => {
+            input.disabled = false;
+        });
+        }
+    }
+    </script>
+    <style>
+        body{
+            background-color: gainsboro;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .but {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block; 
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .but:hover {
+            background-color: rgb(255, 255, 255); 
+        }
+        label, legend, option {
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

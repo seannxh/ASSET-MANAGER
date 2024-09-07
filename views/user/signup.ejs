@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main>
+        <div>
+            <form action="/user/signup" method="post">
+                <fieldset>
+                    <legend>Create User</legend>
+                    <label class = 'head'>USERNAME: <input type="text" name="username" required /></label>
+                    <% if (errorMessage) { %>
+                        <div class="error"><%= errorMessage %></div>
+                    <% } %>
+                    <label>EMAIL: <input type="text" name="email" required /></label>
+                    <label for="birthdate">Birth Date (MM/DD/YYYY):</label>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="MM/DD/YYYY" pattern="\d{2}/\d{2}/\d{4}" required>
+                    <br>
+                    <br>
+                    <label>PASSWORD: <input type="password" name="password" required /></label>
+                    <input type="submit" value="Create Account" />
+                </fieldset>
+            </form>
+        </div>
+    </main>
+    <style>
+      body {
+    background-color:gainsboro;
+    color: #fff; 
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form {
+    background-color: #fff; 
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: #000; 
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #f9f9f9; 
+    color: #000; 
+    font-size: 14px;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #fff; 
+    color: #000;
+}
+
+
+fieldset {
+    border: 2px solid #000;
+    padding: 15px;
+    border-radius: 10px;
+}
+    </style>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSET LISTINGS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="van"><%- include('./partials/nav1') %></div>
+    <h1 class="header">ALL OF MY ASSETS</h1>
+    <div class="button-container">
+        <a href="/asset/new"><button class="create">Create New Asset</button></a>
+    </div>
+    
+    <h1 class="totalprice">Total Value of All Assets: <%= totalValue.toFixed(2) %></h1>
+
+    <% asset.forEach(asset => { %>
+        <div class="show">
+            <h1><%= asset.type.charAt(0).toUpperCase() + asset.type.slice(1).toLowerCase() %> Asset</h1>
+
+            <% if (asset.type === 'stock') { %>
+                <p>Stock Symbol: <%= asset.stockSymbol %></p>
+                <p>Shares Owned: <%= asset.sharesOwned %></p>
+                <p>Estimated Value: $<%= asset.value %></p>
+            <% } %>
+
+            <% if (asset.type === 'house') { %>
+                <p>Address: <%= asset.address %></p>
+                <p>Bedrooms: <%= asset.bedrooms %></p>
+                <p>Bathrooms: <%= asset.bathrooms %></p>
+                <p>Square Feet: <%= asset.squareFeet %>sqft</p>
+                <p>For Sale?: <%= asset.forSale ? 'Yes' : 'No' %></p>
+                <p>Estimated Value: $<%= asset.value %></p>
+            <% } %>
+
+            <% if (asset.type === 'car') { %>
+                <p>Car Name: <%= asset.carName %></p>
+                <p>Car Brand: <%= asset.carBrand %></p>
+                <p>Car Year: <%= asset.carYear %></p>
+                <p>Car Trim: <%= asset.carTrim %></p>
+                <p>Car Mileage: <%= asset.carMileage %>Miles</p>
+                <p>Estimated Value: $<%= asset.value %></p>
+            <% } %>
+
+            <% if (asset.type === 'savings') { %>
+                <p>Account Number: <%= asset.accountNumber %></p>
+                <p>Interest Rate: <%= asset.interestRate %>%</p>
+                <p>Estimated Value: $<%= asset.value %></p>
+            <% } %>
+
+            <% if (asset.imageURL) { %>
+                <img class="picture" src="<%= asset.imageURL %>" alt="Image of <%= asset.type %>" style="max-width: 500px; height: auto;">
+            <% } %>
+
+            <div class="button-container"></div>
+            <a href="/asset/<%= asset._id %>"><button class = "create">Edit Listing</button></a>
+            </div>
+        </div>
+    <% }); %>
+    <style>
+        body {
+            background-color: gainsboro;; 
+            color: #000000; 
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+        .header {
+            text-align: center; 
+            margin: 20px 0;
+        }
+
+
+        .totalprice{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0; 
+        }
+
+        .create {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block; 
+            font-weight: bold;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .create:hover {
+            background-color: rgb(229, 229, 229); 
+        }
+
+        .show{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .show {
+            border: 3px solid #000000;
+            margin: 20px; 
+            border-radius: 15px; 
+            padding: 10px; 
+            box-sizing: border-box; 
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+}
+        .picture {
+            width: 300px; 
+            height: 300px; 
+            object-fit: cover; 
+            border-radius: 8px;
+        }
+        p{
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATE ASSETS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="van"><%- include('./partials/nav') %></div>
+
+    <br>
+    <div class="button-container">
+    <a href="/asset"><button class="but">Go Back</button></a>
+    </div>
+
+    <form method="POST" action="/asset/<%= asset._id %>?_method=PUT">
+        <br>
+        <fieldset>
+            <legend class="update">Update Asset</legend>
+
+            <label for="asset-type">Type of Asset:</label>
+            <select id="asset-type" name="type" required>
+                <option value="stock" <%= asset.type === 'stock' ? 'selected' : '' %>>Stock</option>
+                <option value="house" <%= asset.type === 'house' ? 'selected' : '' %>>House</option>
+                <option value="car" <%= asset.type === 'car' ? 'selected' : '' %>>Car</option>
+                <option value="savings" <%= asset.type === 'savings' ? 'selected' : '' %>>Savings</option>
+            </select>
+            <br><br>
+            
+
+            <% if (asset.type === 'stock') { %>
+                <label>Stock Symbol: <input type="text" name="stockSymbol" value="<%= asset.stockSymbol %>" placeholder="Enter Stock Symbol" /></label>
+                <br><br>
+                <label>Shares Owned: <input type="number" name="sharesOwned" value="<%= asset.sharesOwned %>" placeholder="Enter Shares Owned" /></label>
+                <br><br>
+            <% } %>
+
+            <% if (asset.type === 'house') { %>
+                <label>Address: <input type="text" name="address" value="<%= asset.address %>" placeholder="Enter Address" /></label>
+                <br><br>
+                <label>Bedrooms: <input type="number" name="bedrooms" value="<%= asset.bedrooms %>" placeholder="Enter Number of Bedrooms" /></label>
+                <br><br>
+                <label>Bathrooms: <input type="number" name="bathrooms" value="<%= asset.bathrooms %>" placeholder="Enter Number of Bathrooms" /></label>
+                <br><br>
+                <label>Square Feet: <input type="number" name="squareFeet" value="<%= asset.squareFeet %>" placeholder="Enter Square Feet" /></label>
+                <br><br>
+                <label>For Sale?: <input type="checkbox" name="forSale" <%= asset.forSale ? 'checked' : '' %> /></label>
+                <br><br>
+            <% } %>
+
+            <% if (asset.type === 'car') { %>
+                <label>Car Name: <input type="text" name="carName" value="<%= asset.carName %>" placeholder="Enter Car Name" /></label>
+                <br><br>
+                <label>Car Brand: <input type="text" name="carBrand" value="<%= asset.carBrand %>" placeholder="Enter Car Brand" /></label>
+                <br><br>
+                <label>Car Year: <input type="number" name="carYear" value="<%= asset.carYear %>" placeholder="Enter Car Year" /></label>
+                <br><br>
+                <label>Car Mileage: <input type="number" name="carMileage" value="<%= asset.carMileage %>" placeholder="Enter Car Mileage" /></label>
+                <br><br>
+            <% } %>
+
+            <% if (asset.type === 'savings') { %>
+                <label>Account Number: <input type="text" name="accountNumber" value="<%= asset.accountNumber %>" placeholder="Enter Account Number" /></label>
+                <br><br>
+                <label>Interest Rate: <input type="text" name="interestRate" value="<%= asset.interestRate %>" placeholder="Enter Interest Rate" /></label>
+                <br><br>
+            <% } %>
+
+            <label>Estimated Value: <input value="<%= asset.value %>" type="number" name="value" placeholder="Enter the estimated value" required /></label>
+            <br><br>
+
+            <label>Image: <input type="text" name="imageURL" value="<%= asset.imageURL %>" placeholder="Enter Image URL" /></label>
+            <br><br>
+
+            <% if (asset.imageURL) { %>
+                <img class="picture" src="<%= asset.imageURL %>" alt="Image of <%= asset.type %>" style="max-width: 500px; height: auto;">
+            <% } %>
+
+            <br><br>
+            <div></div>
+            <div class="button-container">
+            <input class = "but"type="submit" value="Update" />
+            </div>\
+            <br>
+        </fieldset>
+    </form>
+    <br><br>
+    <form method="POST" action="/asset/<%= asset._id %>?_method=DELETE">
+        <div class="button-container">
+            <input class="but" value="Delete" type="submit">
+        </div>
+    </form>
+    <br>
+    <style>
+        body{
+            background-color: gainsboro;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;     
+        }
+        .but {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: bold;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        label, .update{
+            font-weight: bold;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .but:hover {
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</body>
+</html>
