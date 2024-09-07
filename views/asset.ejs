@@ -52,7 +52,6 @@
             <% if (asset.imageURL) { %>
                 <img class="picture" src="<%= asset.imageURL %>" alt="Image of <%= asset.type %>" style="max-width: 500px; height: auto;">
             <% } %>
-
             <div class="button-container"></div>
             <a href="/asset/<%= asset._id %>"><button class = "create">Edit Listing</button></a>
             </div>
@@ -94,7 +93,6 @@
             background-color: rgb(229, 229, 229); 
         }
         .show {
-            border: 3px solid #000000;
             margin: 20px; 
             border-radius: 15px; 
             padding: 10px; 
