@@ -10,6 +10,8 @@ This project is a web-based asset management system built using Node.js, Express
 - **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js, which provides schema-based solutions to model your data.
 - **EJS (Embedded JavaScript Templating)**: A templating engine that lets you generate HTML with embedded JavaScript.
 - **JavaScript**: The main programming language used for both client-side and server-side code.
+- **CSS (Cascading Style Sheets)**: A style sheet language used to control the visual presentation of web pages. CSS allows developers to define the look and feel of their web application, including layout, colors, fonts, and responsiveness. By separating content (HTML) from design, CSS ensures a clean and maintainable codebase. In this project, CSS is used to enhance the user interface, improve accessibility, and provide a responsive, visually appealing experience across different devices.
+
 
 ### Additional Libraries and Tools
 
